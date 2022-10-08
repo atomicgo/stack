@@ -9,9 +9,8 @@ jobs:
 
       - name: Set up Go
         uses: actions/setup-go@v2
-
-      - name: Go mod tidy
-        run: go mod tidy
+        with:
+          go-version: 1.18
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
