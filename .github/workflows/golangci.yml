@@ -12,6 +12,8 @@ jobs:
         with:
           check-latest: true
 
+      - run: go version
+
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
