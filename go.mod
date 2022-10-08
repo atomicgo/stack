@@ -2,8 +2,9 @@ module atomicgo.dev/stack
 
 go 1.18
 
+require github.com/MarvinJWendt/testza v0.4.3
+
 require (
-	github.com/MarvinJWendt/testza v0.4.3 // indirect
 	github.com/atomicgo/cursor v0.0.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gookit/color v1.5.0 // indirect
