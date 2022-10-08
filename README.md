@@ -16,7 +16,7 @@
 </a>
 
 <a href="https://codecov.io/gh/atomicgo/stack">
-<!-- unittestcount:start --><img src="https://img.shields.io/badge/Unit_Tests-0-magenta?style=flat-square" alt="Unit test count"><!-- unittestcount:end -->
+<!-- unittestcount:start --><img src="https://img.shields.io/badge/Unit_Tests-23-magenta?style=flat-square" alt="Unit test count"><!-- unittestcount:end -->
 </a>
 
 <a href="https://opensource.org/licenses/MIT" target="_blank">
@@ -85,7 +85,426 @@ Package stack is a simple implemntation of a stack data structure. It uses gener
 
 ## Index
 
+- [type Stack](<#type-stack>)
+  - [func New[T any]() Stack[T]](<#func-new>)
+  - [func (s *Stack[T]) Clear()](<#func-stackt-clear>)
+  - [func (s *Stack[T]) Contains(item T) bool](<#func-stackt-contains>)
+  - [func (s *Stack[T]) IsEmpty() bool](<#func-stackt-isempty>)
+  - [func (s *Stack[T]) Peek() T](<#func-stackt-peek>)
+  - [func (s *Stack[T]) Pop() T](<#func-stackt-pop>)
+  - [func (s *Stack[T]) PopSafe() T](<#func-stackt-popsafe>)
+  - [func (s *Stack[T]) Push(item ...T)](<#func-stackt-push>)
+  - [func (s *Stack[T]) Size() int](<#func-stackt-size>)
+  - [func (s Stack[T]) String() string](<#func-stackt-string>)
+  - [func (s *Stack[T]) Values() []T](<#func-stackt-values>)
 
+
+## type [Stack](<https://github.com/atomicgo/stack/blob/main/stack.go#L9-L11>)
+
+Stack is a simple implementation of a stack data structure.
+
+```go
+type Stack[T any] struct {
+    // contains filtered or unexported fields
+}
+```
+
+### func [New](<https://github.com/atomicgo/stack/blob/main/stack.go#L14>)
+
+```go
+func New[T any]() Stack[T]
+```
+
+New returns a new stack.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	stack.New[string]()
+}
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [Clear](<https://github.com/atomicgo/stack/blob/main/stack.go#L58>)
+
+```go
+func (s *Stack[T]) Clear()
+```
+
+Clear removes all items from the stack.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	s.Clear()
+
+	fmt.Println(s)
+
+}
+```
+
+#### Output
+
+```
+[]
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [Contains](<https://github.com/atomicgo/stack/blob/main/stack.go#L63>)
+
+```go
+func (s *Stack[T]) Contains(item T) bool
+```
+
+Contains returns true if the stack contains the item.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s.Contains("Hello"))
+	fmt.Println(s.Contains("Foo"))
+
+}
+```
+
+#### Output
+
+```
+true
+false
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [IsEmpty](<https://github.com/atomicgo/stack/blob/main/stack.go#L43>)
+
+```go
+func (s *Stack[T]) IsEmpty() bool
+```
+
+IsEmpty returns true if the stack is empty.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s.IsEmpty())
+
+	s.Clear()
+
+	fmt.Println(s.IsEmpty())
+
+}
+```
+
+#### Output
+
+```
+false
+true
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [Peek](<https://github.com/atomicgo/stack/blob/main/stack.go#L53>)
+
+```go
+func (s *Stack[T]) Peek() T
+```
+
+Peek returns the top item of the stack without removing it.
+
+### func \(\*Stack\[T\]\) [Pop](<https://github.com/atomicgo/stack/blob/main/stack.go#L25>)
+
+```go
+func (s *Stack[T]) Pop() T
+```
+
+Pop removes an item from the stack and returns it. Panics if the stack is empty. Use PopSafe for safer access to the Stack.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s.Pop())
+	fmt.Println(s.Pop())
+
+}
+```
+
+#### Output
+
+```
+World
+Hello
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [PopSafe](<https://github.com/atomicgo/stack/blob/main/stack.go#L34>)
+
+```go
+func (s *Stack[T]) PopSafe() T
+```
+
+PopSafe removes an item from the stack and returns it. Returns the zero value of the type if the stack is empty. To make this function safe, it uses reflection and is therefore slower than Pop.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s.PopSafe())
+	fmt.Println(s.PopSafe())
+	fmt.Println(s.PopSafe())
+
+}
+```
+
+#### Output
+
+```
+World
+Hello
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [Push](<https://github.com/atomicgo/stack/blob/main/stack.go#L19>)
+
+```go
+func (s *Stack[T]) Push(item ...T)
+```
+
+Push adds items to a stack.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s)
+
+}
+```
+
+#### Output
+
+```
+[Hello World]
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [Size](<https://github.com/atomicgo/stack/blob/main/stack.go#L48>)
+
+```go
+func (s *Stack[T]) Size() int
+```
+
+Size returns the size of the stack.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s.Size())
+
+}
+```
+
+#### Output
+
+```
+2
+```
+
+</p>
+</details>
+
+### func \(Stack\[T\]\) [String](<https://github.com/atomicgo/stack/blob/main/stack.go#L77>)
+
+```go
+func (s Stack[T]) String() string
+```
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s.String())
+
+}
+```
+
+#### Output
+
+```
+[Hello World]
+```
+
+</p>
+</details>
+
+### func \(\*Stack\[T\]\) [Values](<https://github.com/atomicgo/stack/blob/main/stack.go#L73>)
+
+```go
+func (s *Stack[T]) Values() []T
+```
+
+Values returns the values of the stack as a slice.
+
+<details><summary>Example</summary>
+<p>
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"atomicgo.dev/stack"
+)
+
+func main() {
+	s := stack.New[string]()
+	s.Push("Hello")
+	s.Push("World")
+
+	fmt.Println(s.Values())
+
+}
+```
+
+#### Output
+
+```
+[Hello World]
+```
+
+</p>
+</details>
 
 
 
