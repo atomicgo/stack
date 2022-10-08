@@ -9,6 +9,8 @@ jobs:
 
       - name: Set up Go
         uses: actions/setup-go@v3
+        with:
+          check-latest: true
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
