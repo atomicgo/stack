@@ -16,7 +16,7 @@
 </a>
 
 <a href="https://codecov.io/gh/atomicgo/stack">
-<!-- unittestcount:start --><img src="https://img.shields.io/badge/Unit_Tests-23-magenta?style=flat-square" alt="Unit test count"><!-- unittestcount:end -->
+<!-- unittestcount:start --><img src="https://img.shields.io/badge/Unit_Tests-0-magenta?style=flat-square" alt="Unit test count"><!-- unittestcount:end -->
 </a>
 
 <a href="https://opensource.org/licenses/MIT" target="_blank">
@@ -73,20 +73,21 @@ Package stack is a simple implemntation of a stack data structure. It uses gener
 
 ## Index
 
-- [type Stack](<#type-stack>)
-  - [func New[T any]() Stack[T]](<#func-new>)
-  - [func (s *Stack[T]) Clear()](<#func-stackt-clear>)
-  - [func (s *Stack[T]) Contains(item T) bool](<#func-stackt-contains>)
-  - [func (s *Stack[T]) IsEmpty() bool](<#func-stackt-isempty>)
-  - [func (s *Stack[T]) Peek() T](<#func-stackt-peek>)
-  - [func (s *Stack[T]) Pop() T](<#func-stackt-pop>)
-  - [func (s *Stack[T]) PopSafe() T](<#func-stackt-popsafe>)
-  - [func (s *Stack[T]) Push(item ...T)](<#func-stackt-push>)
-  - [func (s *Stack[T]) Size() int](<#func-stackt-size>)
-  - [func (s Stack[T]) String() string](<#func-stackt-string>)
-  - [func (s *Stack[T]) Values() []T](<#func-stackt-values>)
+- [type Stack](<#Stack>)
+  - [func New\[T any\]\(\) Stack\[T\]](<#New>)
+  - [func \(s \*Stack\[T\]\) Clear\(\)](<#Stack[T].Clear>)
+  - [func \(s \*Stack\[T\]\) Contains\(item T\) bool](<#Stack[T].Contains>)
+  - [func \(s \*Stack\[T\]\) IsEmpty\(\) bool](<#Stack[T].IsEmpty>)
+  - [func \(s \*Stack\[T\]\) Peek\(\) T](<#Stack[T].Peek>)
+  - [func \(s \*Stack\[T\]\) Pop\(\) T](<#Stack[T].Pop>)
+  - [func \(s \*Stack\[T\]\) PopSafe\(\) T](<#Stack[T].PopSafe>)
+  - [func \(s \*Stack\[T\]\) Push\(item ...T\)](<#Stack[T].Push>)
+  - [func \(s \*Stack\[T\]\) Size\(\) int](<#Stack[T].Size>)
+  - [func \(s Stack\[T\]\) String\(\) string](<#Stack[T].String>)
+  - [func \(s \*Stack\[T\]\) Values\(\) \[\]T](<#Stack[T].Values>)
 
 
+<a name="Stack"></a>
 ## type [Stack](<https://github.com/atomicgo/stack/blob/main/stack.go#L9-L11>)
 
 Stack is a simple implementation of a stack data structure.
@@ -97,6 +98,7 @@ type Stack[T any] struct {
 }
 ```
 
+<a name="New"></a>
 ### func [New](<https://github.com/atomicgo/stack/blob/main/stack.go#L14>)
 
 ```go
@@ -107,6 +109,8 @@ New returns a new stack.
 
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -123,6 +127,7 @@ func main() {
 </p>
 </details>
 
+<a name="Stack[T].Clear"></a>
 ### func \(\*Stack\[T\]\) [Clear](<https://github.com/atomicgo/stack/blob/main/stack.go#L58>)
 
 ```go
@@ -133,6 +138,8 @@ Clear removes all items from the stack.
 
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -164,6 +171,7 @@ func main() {
 </p>
 </details>
 
+<a name="Stack[T].Contains"></a>
 ### func \(\*Stack\[T\]\) [Contains](<https://github.com/atomicgo/stack/blob/main/stack.go#L63>)
 
 ```go
@@ -174,6 +182,8 @@ Contains returns true if the stack contains the item.
 
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -205,6 +215,7 @@ false
 </p>
 </details>
 
+<a name="Stack[T].IsEmpty"></a>
 ### func \(\*Stack\[T\]\) [IsEmpty](<https://github.com/atomicgo/stack/blob/main/stack.go#L43>)
 
 ```go
@@ -215,6 +226,8 @@ IsEmpty returns true if the stack is empty.
 
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -249,6 +262,7 @@ true
 </p>
 </details>
 
+<a name="Stack[T].Peek"></a>
 ### func \(\*Stack\[T\]\) [Peek](<https://github.com/atomicgo/stack/blob/main/stack.go#L53>)
 
 ```go
@@ -257,6 +271,7 @@ func (s *Stack[T]) Peek() T
 
 Peek returns the top item of the stack without removing it.
 
+<a name="Stack[T].Pop"></a>
 ### func \(\*Stack\[T\]\) [Pop](<https://github.com/atomicgo/stack/blob/main/stack.go#L25>)
 
 ```go
@@ -268,6 +283,8 @@ Pop removes an item from the stack and returns it. Panics if the stack is empty.
 <details><summary>Example</summary>
 <p>
 
+
+
 ```go
 package main
 
@@ -298,6 +315,7 @@ Hello
 </p>
 </details>
 
+<a name="Stack[T].PopSafe"></a>
 ### func \(\*Stack\[T\]\) [PopSafe](<https://github.com/atomicgo/stack/blob/main/stack.go#L34>)
 
 ```go
@@ -309,6 +327,8 @@ PopSafe removes an item from the stack and returns it. Returns the zero value of
 <details><summary>Example</summary>
 <p>
 
+
+
 ```go
 package main
 
@@ -340,6 +360,7 @@ Hello
 </p>
 </details>
 
+<a name="Stack[T].Push"></a>
 ### func \(\*Stack\[T\]\) [Push](<https://github.com/atomicgo/stack/blob/main/stack.go#L19>)
 
 ```go
@@ -350,6 +371,8 @@ Push adds items to a stack.
 
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -379,6 +402,7 @@ func main() {
 </p>
 </details>
 
+<a name="Stack[T].Size"></a>
 ### func \(\*Stack\[T\]\) [Size](<https://github.com/atomicgo/stack/blob/main/stack.go#L48>)
 
 ```go
@@ -389,6 +413,8 @@ Size returns the size of the stack.
 
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -418,14 +444,19 @@ func main() {
 </p>
 </details>
 
+<a name="Stack[T].String"></a>
 ### func \(Stack\[T\]\) [String](<https://github.com/atomicgo/stack/blob/main/stack.go#L77>)
 
 ```go
 func (s Stack[T]) String() string
 ```
 
+
+
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -455,6 +486,7 @@ func main() {
 </p>
 </details>
 
+<a name="Stack[T].Values"></a>
 ### func \(\*Stack\[T\]\) [Values](<https://github.com/atomicgo/stack/blob/main/stack.go#L73>)
 
 ```go
@@ -465,6 +497,8 @@ Values returns the values of the stack as a slice.
 
 <details><summary>Example</summary>
 <p>
+
+
 
 ```go
 package main
@@ -493,8 +527,6 @@ func main() {
 
 </p>
 </details>
-
-
 
 Generated by [gomarkdoc](<https://github.com/princjef/gomarkdoc>)
 
