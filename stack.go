@@ -25,6 +25,7 @@ func (s *Stack[T]) Push(item ...T) {
 func (s *Stack[T]) Pop() T {
 	item := s.items[len(s.items)-1]
 	s.items = s.items[:len(s.items)-1]
+
 	return item
 }
 
@@ -66,6 +67,7 @@ func (s *Stack[T]) Contains(item T) bool {
 			return true
 		}
 	}
+
 	return false
 }
 

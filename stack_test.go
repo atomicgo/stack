@@ -79,5 +79,4 @@ func TestStack(t *testing.T) {
 		testza.AssertEqual(t, 6, s.Size())
 		s.Clear()
 	})
-
 }
