@@ -11,7 +11,7 @@ import (
 func TestStack(t *testing.T) {
 	s := stack.New[string]()
 
-	t.Run("Push", func(t *testing.T) {
+	t.Run("Push", func(_ *testing.T) {
 		s.Push("Hello")
 		s.Push("World")
 	})
