@@ -143,7 +143,7 @@ func main() {
 
 
 <a name="Stack[T].Clear"></a>
-### func \(\*Stack\[T\]\) [Clear](<https://github.com/atomicgo/stack/blob/main/stack.go#L58>)
+### func \(\*Stack\[T\]\) [Clear](<https://github.com/atomicgo/stack/blob/main/stack.go#L59>)
 
 ```go
 func (s *Stack[T]) Clear()
@@ -185,7 +185,7 @@ func main() {
 
 
 <a name="Stack[T].Contains"></a>
-### func \(\*Stack\[T\]\) [Contains](<https://github.com/atomicgo/stack/blob/main/stack.go#L63>)
+### func \(\*Stack\[T\]\) [Contains](<https://github.com/atomicgo/stack/blob/main/stack.go#L64>)
 
 ```go
 func (s *Stack[T]) Contains(item T) bool
@@ -227,7 +227,7 @@ false
 
 
 <a name="Stack[T].IsEmpty"></a>
-### func \(\*Stack\[T\]\) [IsEmpty](<https://github.com/atomicgo/stack/blob/main/stack.go#L43>)
+### func \(\*Stack\[T\]\) [IsEmpty](<https://github.com/atomicgo/stack/blob/main/stack.go#L44>)
 
 ```go
 func (s *Stack[T]) IsEmpty() bool
@@ -272,7 +272,7 @@ true
 
 
 <a name="Stack[T].Peek"></a>
-### func \(\*Stack\[T\]\) [Peek](<https://github.com/atomicgo/stack/blob/main/stack.go#L53>)
+### func \(\*Stack\[T\]\) [Peek](<https://github.com/atomicgo/stack/blob/main/stack.go#L54>)
 
 ```go
 func (s *Stack[T]) Peek() T
@@ -323,7 +323,7 @@ Hello
 
 
 <a name="Stack[T].PopSafe"></a>
-### func \(\*Stack\[T\]\) [PopSafe](<https://github.com/atomicgo/stack/blob/main/stack.go#L34>)
+### func \(\*Stack\[T\]\) [PopSafe](<https://github.com/atomicgo/stack/blob/main/stack.go#L35>)
 
 ```go
 func (s *Stack[T]) PopSafe() T
@@ -406,7 +406,7 @@ func main() {
 
 
 <a name="Stack[T].Size"></a>
-### func \(\*Stack\[T\]\) [Size](<https://github.com/atomicgo/stack/blob/main/stack.go#L48>)
+### func \(\*Stack\[T\]\) [Size](<https://github.com/atomicgo/stack/blob/main/stack.go#L49>)
 
 ```go
 func (s *Stack[T]) Size() int
@@ -446,7 +446,7 @@ func main() {
 
 
 <a name="Stack[T].String"></a>
-### func \(Stack\[T\]\) [String](<https://github.com/atomicgo/stack/blob/main/stack.go#L77>)
+### func \(Stack\[T\]\) [String](<https://github.com/atomicgo/stack/blob/main/stack.go#L79>)
 
 ```go
 func (s Stack[T]) String() string
@@ -486,7 +486,7 @@ func main() {
 
 
 <a name="Stack[T].Values"></a>
-### func \(\*Stack\[T\]\) [Values](<https://github.com/atomicgo/stack/blob/main/stack.go#L73>)
+### func \(\*Stack\[T\]\) [Values](<https://github.com/atomicgo/stack/blob/main/stack.go#L75>)
 
 ```go
 func (s *Stack[T]) Values() []T
